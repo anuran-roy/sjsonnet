@@ -11,10 +11,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Set up JDK 17
+      - name: Set up JDK 11
         uses: actions/setup-java@v2
         with:
-          java-version: '17'
+          java-version: '11'
           distribution: 'adopt'
       - name: Cache sbt
         uses: actions/cache@v3
@@ -42,7 +42,7 @@ jobs:
 #       - name: Run sbt tests
 #         run: sbt test
       - name: Run sbt build
-        run: ./mill -i show sjsonnet[2.13.4].jvm.assembly
+        run: ./mill -i show sjsonnet[2.13.4].server.assembly
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with:
